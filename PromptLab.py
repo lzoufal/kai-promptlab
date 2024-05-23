@@ -23,18 +23,10 @@ st.markdown(f"{logo_html}", unsafe_allow_html=True)
 
 st.title('Kai PromptLab 👩🏻‍🔬')
 
-OPENAI_API_KEY = st.sidebar.text_input('Enter your OpenAI API Key:', value="Enter API Key",
-    help= """
-    You can get your own OpenAI API key by following these instructions:
-    1. Go to https://platform.openai.com/account/api-keys.
-    2. Click on the __+ Create new secret key__ button.
-    3. Enter an identifier name (optional) and click on the __Create secret key__ button.
-    """,
-    type="password", 
-    )
 
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-openai.api_key = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+
+openai.api_key = OPENAI_API_KEY
 
 def get_uploaded_file(upload_option):
     if upload_option == 'Connect to Keboola Storage':
