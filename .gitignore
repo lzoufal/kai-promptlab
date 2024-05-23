@@ -9,3 +9,4 @@ src/.DS_Store
 *.csv
 *.csv.gz
 data/termsheets_in_markdown
+.env
